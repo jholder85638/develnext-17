@@ -33,7 +33,7 @@ class AddSubCategoryMenuCommand extends AbstractMenuCommand
                     ['name' => $name, 'parentId' => $parent ? $parent['id'] : null],
                     function (ServiceResponse $response) use ($editor) {
                         if ($response->isNotSuccess()) {
-                            Notifications::error('Ошибка', $response->message());
+                            Notifications::error('Error', $response->message());
                             return;
                         }
 

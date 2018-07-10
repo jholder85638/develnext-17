@@ -396,7 +396,7 @@ class DocEditor extends AbstractEditor
             'categoryId' => $category['id'],
         ], function (ServiceResponse $response) {
             if ($response->isNotSuccess()) {
-                Notifications::error('Ошибка', $response->message());
+                Notifications::error('Error', $response->message());
                 return;
             }
 
@@ -411,7 +411,7 @@ class DocEditor extends AbstractEditor
                 Notifications::success('Успешно', 'Удаление прошло успешно');
                 $this->loadContent(true);
             } else {
-                Notifications::error('Ошибка', $response->message());
+                Notifications::error('Error', $response->message());
             }
         });
     }
@@ -441,14 +441,14 @@ class DocEditor extends AbstractEditor
                                 $this->loadContent(true);
                             }
                         } else {
-                            Notifications::error('Ошибка сохранения', $response->message());
+                            Notifications::error('Error сохранения', $response->message());
                         }
                     });
                 });
 
                 $dialog->showDialog();
             } else {
-                Notifications::error('Ошибка', $response->message());
+                Notifications::error('Error', $response->message());
             }
         });
     }
@@ -473,7 +473,7 @@ class DocEditor extends AbstractEditor
                 $this->openedEntry = $response->data();
                 $this->uiPage->setContent($response->data());
             } else {
-                Notifications::error('Ошибка', 'Произошла непредвиденная ошибка');
+                Notifications::error('Error', 'Произошла непредвиденная Error');
             }
         });
     }
@@ -501,7 +501,7 @@ class DocEditor extends AbstractEditor
             if ($response->isSuccess()) {
                 $this->uiSection->setContent($searchSection, $response->data());
             } else {
-                Notifications::error('Ошибка поиска', 'Возникла ошибка при попытке сделать поиск. Возможно сервис временно недоступен.');
+                Notifications::error('Error поиска', 'Возникла Error при попытке сделать поиск. Возможно сервис временно недоступен.');
                 Logger::error("Unable to search " . json_encode($query) . ", message = {$response->message()}");
             }
         });

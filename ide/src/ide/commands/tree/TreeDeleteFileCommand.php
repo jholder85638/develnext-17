@@ -61,7 +61,7 @@ class TreeDeleteFileCommand extends AbstractMenuCommand
                     }
 
                     if (!$success) {
-                        UXDialog::showAndWait(_("error.delete::Ошибка удаления {0}", $file), 'ERROR');
+                        UXDialog::showAndWait(_("error.delete::Error удаления {0}", $file), 'ERROR');
                     }
                 }
             }

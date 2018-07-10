@@ -5,6 +5,7 @@ use ide\editors\FormEditor;
 use ide\formats\templates\JPPMPackageFileTemplate;
 use ide\project\AbstractProjectTemplate;
 use ide\project\behaviours\BackupProjectBehaviour;
+use ide\project\behaviours\ZimbraLogBehaviour;
 use ide\project\behaviours\BundleProjectBehaviour;
 use ide\project\behaviours\GuiFrameworkProjectBehaviour;
 use ide\project\behaviours\JavaPlatformBehaviour;
@@ -83,6 +84,10 @@ class DefaultGuiProjectTemplate extends AbstractProjectTemplate
 
         if (!$project->hasBehaviour(BackupProjectBehaviour::class)) {
             $project->register(new BackupProjectBehaviour(), false);
+        }
+
+        if (!$project->hasBehaviour(ZimbraLogBehaviour::class)) {
+            $project->register(new ZimbraLogBehaviour(), false);
         }
 
         if ($ideVersionHash < 2017022512) {
@@ -301,6 +306,7 @@ class DefaultGuiProjectTemplate extends AbstractProjectTemplate
         $project->register(new RunBuildProjectBehaviour());
         $project->register(new ShareProjectBehaviour());
         $project->register(new BackupProjectBehaviour());
+        $project->register(new ZimbraLogBehaviour());
 
         $project->setIgnoreRules([
             '*.log', '*.tmp'

@@ -265,6 +265,9 @@ class DesignProjectControlPane_SkinConvertToTheme extends AbstractMenuCommand
     {
         if (MessageBoxForm::confirm('ui.design.confirm.message.all.styles.replaced.with.skin::Все стили проекта будут заменены стилями скина, Вы уверены?')) {
             $gui = GuiFrameworkProjectBehaviour::get();
+            $tmp = json_encode($gui);
+            $tmp = json_deecode($tmp, 1);
+            var_dump($tmp);
             $gui->convertSkinToTheme();
             $this->pane->refresh();
         }

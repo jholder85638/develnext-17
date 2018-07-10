@@ -156,7 +156,7 @@ class IconSearchPaneArea extends AbstractFormArea
 
                 Async::parallel($tasks, function () use ($list, $data) {
                     if ($list->isEmpty()) {
-                        Notifications::error('Ошибка загрузки', 'Невозможно загрузить данную иконку, попробуйте позже.');
+                        Notifications::error('Error загрузки', 'Невозможно загрузить данную иконку, попробуйте позже.');
                     /*} else if ($list->count() == 1) {
                         $this->trigger('action', [$list->pop()[1]]);
                     */} else {
@@ -176,7 +176,7 @@ class IconSearchPaneArea extends AbstractFormArea
                     $this->hidePreloader();
                 });
             } else {
-                Notifications::error('Ошибка загрузки', 'Невозможно загрузить данную иконку, попробуйте позже.');
+                Notifications::error('Error загрузки', 'Невозможно загрузить данную иконку, попробуйте позже.');
                 $this->hidePreloader();
             }
         });
@@ -202,7 +202,7 @@ class IconSearchPaneArea extends AbstractFormArea
             } else {
                 $this->listHelper->clear();
 
-                Notifications::error('Поиск иконок', 'Возникла непредвиденная ошибка, возможно сервис недоступен.');
+                Notifications::error('Поиск иконок', 'Возникла непредвиденная Error, возможно сервис недоступен.');
             }
 
             $this->hidePreloader();

@@ -6,6 +6,7 @@ use ide\formats\templates\JPPMPackageFileTemplate;
 use ide\Ide;
 use ide\project\AbstractProjectTemplate;
 use ide\project\behaviours\BackupProjectBehaviour;
+use ide\project\behaviours\ZimbraLogBehaviour;
 use ide\project\behaviours\JavaPlatformBehaviour;
 use ide\project\behaviours\PhpProjectBehaviour;
 use ide\project\control\CommonProjectControlPane;
@@ -81,6 +82,7 @@ class PhpProjectTemplate extends AbstractProjectTemplate
         $project->register(new JavaPlatformBehaviour());
         $php = $project->register(new PhpProjectBehaviour());
         $project->register(new BackupProjectBehaviour());
+        $project->register(new ZimbraLogBehaviour());
 
         $project->registerFormat(new ProjectFormat());
 
@@ -112,6 +114,10 @@ class PhpProjectTemplate extends AbstractProjectTemplate
 
         if (!$project->hasBehaviour(BackupProjectBehaviour::class)) {
             $project->register(new BackupProjectBehaviour(), false);
+        }
+
+        if (!$project->hasBehaviour(ZimbraLogBehaviour::class)) {
+            $project->register(new ZimbraLogBehaviour(), false);
         }
 
         if (!$project->getRegisteredFormat(ProjectFormat::class)) {

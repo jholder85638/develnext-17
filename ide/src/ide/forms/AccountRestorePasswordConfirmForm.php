@@ -60,7 +60,7 @@ class AccountRestorePasswordConfirmForm extends AbstractOnlineIdeForm
                     $dialog->showDialog();
                 });
             } else {
-                Notifications::error('Ошибка восстановления', $response->message());
+                Notifications::error('Error восстановления', $response->message());
             }
         });
     }

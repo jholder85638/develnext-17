@@ -67,7 +67,7 @@ class NewProjectForm extends AbstractIdeForm
             $resource = Items::first($this->templateList->selectedItems);
 
             if ($resource instanceof IdeLibraryResource) {
-                $msg = new MessageBoxForm("Вы уверены, что хотите удалить проект {$resource->getName()} из библиотеки?", ['Да, удалить', 'Нет'], $this);
+                $msg = new MessageBoxForm("Are you sure you wish to delete session {$resource->getName()} from the library?", ['Yes', 'No'], $this);
 
                 if ($msg->showDialog() && $msg->getResultIndex() == 0) {
                     Ide::get()->getLibrary()->delete($resource);
@@ -80,7 +80,7 @@ class NewProjectForm extends AbstractIdeForm
 
         $this->icon->image = Ide::get()->getImage('icons/new32.png')->image;
         $this->modality = 'APPLICATION_MODAL';
-        $this->title = 'Новый проект';
+        $this->title = 'New zmWatson Session';
 
         $this->pathField->text = $projectDir = Ide::get()->getUserConfigValue('projectDirectory');
 
@@ -101,7 +101,7 @@ class NewProjectForm extends AbstractIdeForm
                     $titleDescription->style = '-fx-text-fill: gray;'.UiUtils::fontSizeStyle();
 
                     if (!$titleDescription->text && $template instanceof IdeLibraryResource) {
-                        $titleDescription->text = 'Шаблонный проект без описания';
+                        $titleDescription->text = 'No description.';
                     }
 
                     $title = new UXVBox([$titleName, $titleDescription]);
@@ -234,7 +234,7 @@ class NewProjectForm extends AbstractIdeForm
             ProjectSystem::close(false);
 
             uiLater(function () use ($template, $filename, $package) {
-                app()->getMainForm()->showPreloader('Создание проекта ...');
+                app()->getMainForm()->showPreloader('Create Session ...');
                 try {
                     ProjectSystem::create($template, $filename, $package);
                 } finally {

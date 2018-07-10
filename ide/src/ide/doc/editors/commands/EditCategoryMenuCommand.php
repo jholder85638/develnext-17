@@ -55,7 +55,7 @@ class EditCategoryMenuCommand extends AbstractMenuCommand
                             $this->editor->open();
                         }
                     } else {
-                        Notifications::error('Ошибка сохранения', $response->message());
+                        Notifications::error('Error сохранения', $response->message());
                     }
                 });
             });

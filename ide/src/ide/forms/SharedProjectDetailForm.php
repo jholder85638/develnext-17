@@ -202,7 +202,7 @@ class SharedProjectDetailForm extends AbstractOnlineIdeForm
                         Notifications::warning('Проект не найден', 'По неясной причине проект не был найден, попробуйте его загрузить по новой.');
                         break;
                     default:
-                        Notifications::error('Проект не перезалит', 'Произошла непредвиденная ошибка, возможно сервис временно недоступен, попробуйте позже.');
+                        Notifications::error('Проект не перезалит', 'Произошла непредвиденная Error, возможно сервис временно недоступен, попробуйте позже.');
                         break;
                 }
             }
@@ -325,7 +325,7 @@ class SharedProjectDetailForm extends AbstractOnlineIdeForm
                         UXApplication::runLater(function () {
                             $this->openButton->enabled = false;
 
-                            Notifications::error('Ошибка загрузки', 'Данный проект невозможно загрузить, что-то пошло не так.');
+                            Notifications::error('Error загрузки', 'Данный проект невозможно загрузить, что-то пошло не так.');
                         });
                     }
                 } catch (IOException $e) {
@@ -334,7 +334,7 @@ class SharedProjectDetailForm extends AbstractOnlineIdeForm
                     UXApplication::runLater(function () {
                         $this->openButton->enabled = false;
 
-                        Notifications::error('Ошибка загрузки', 'Данный проект невозможно загрузить, что-то пошло не так.');
+                        Notifications::error('Error загрузки', 'Данный проект невозможно загрузить, что-то пошло не так.');
                     });
                 } finally {
                     UXApplication::runLater(function () {
@@ -346,7 +346,7 @@ class SharedProjectDetailForm extends AbstractOnlineIdeForm
             $thread->setName("SharedProjectDetailOpen");
             $thread->start();
         } else {
-            Notifications::error('Ошибка загрузки', 'Данный проект невозможно загрузить, что-то пошло не так.');
+            Notifications::error('Error загрузки', 'Данный проект невозможно загрузить, что-то пошло не так.');
         }
     }
 }

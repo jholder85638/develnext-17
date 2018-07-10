@@ -79,7 +79,7 @@ class IdPropertyEditor extends TextPropertyEditor
                     $this->showDialog();
                     return;
                 case 'busy':
-                    Dialog::error("Элемент с id = '$value' или свойство с таким названием уже существует, придумайте другой id");
+                    Dialog::error("Элемент с id = '$value' или свойство с таким названием уже существует, придумайте other id");
                     $this->showDialog();
                     return;
             }

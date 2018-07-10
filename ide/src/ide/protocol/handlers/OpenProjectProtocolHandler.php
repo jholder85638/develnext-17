@@ -52,7 +52,7 @@ class OpenProjectProtocolHandler extends AbstractProtocolHandler
                             });
                         } else {
                             Logger::error("Unable to get project, uid = $uid, {$response->toLog()}");
-                            Notifications::error('Ошибка открытия', 'Ссылка на проект некорректная или он был уже удален.');
+                            Notifications::error('Error открытия', 'Ссылка на проект некорректная или он был уже удален.');
                         }
                     });
                 });

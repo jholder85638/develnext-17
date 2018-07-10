@@ -92,7 +92,7 @@ class LoginForm extends AbstractOnlineIdeForm
                             break;
                     }
 
-                    Notifications::error('Ошибка входа', $message);
+                    Notifications::error('Error входа', $message);
                 }
             }
         );

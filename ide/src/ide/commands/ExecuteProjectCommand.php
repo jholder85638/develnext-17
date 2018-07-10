@@ -306,7 +306,7 @@ class ExecuteProjectCommand extends AbstractCommand
             });
         } else {
             $this->process = null;
-            UXDialog::show('Ошибка запуска', 'ERROR');
+            UXDialog::show('Error запуска', 'ERROR');
         }
     }
 }

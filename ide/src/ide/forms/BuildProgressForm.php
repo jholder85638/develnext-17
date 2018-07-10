@@ -490,8 +490,8 @@ class BuildProgressForm extends AbstractIdeForm implements ProjectConsoleOutput
                 if ($exitValue === 1 && $this->ignoreExit1) {
                 } else {
                     $self->addConsoleLine('');
-                    $self->addConsoleLine('(!) Ошибка запуска, что-то пошло не так', 'red');
-                    $self->addConsoleLine('   --> возможно ошибка в вашей программе или ошибка IDE...', 'gray');
+                    $self->addConsoleLine('(!) Error запуска, что-то пошло не так', 'red');
+                    $self->addConsoleLine('   --> возможно Error в вашей программе или Error IDE...', 'gray');
                     $self->addConsoleLine('');
                 }
             }

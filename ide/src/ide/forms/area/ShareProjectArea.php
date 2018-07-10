@@ -139,7 +139,7 @@ class ShareProjectArea extends AbstractFormArea
 
                         uiLater(function () {
                             Notifications::show(
-                                'common.changes.uploaded::Изменения загружены',
+                                'common.changes.uploaded::amendedия загружены',
                                 'message.project.was.successful.uploaded.to.hub::Измненения в проекте были успешно загружены на hub.develnext.org');
                         });
                     }
@@ -164,7 +164,7 @@ class ShareProjectArea extends AbstractFormArea
                             } else {
                                 Notifications::error(
                                     'project.not.uploaded::Проект не загружен',
-                                    'message.unknown.error.service.not.available::Произошла непредвиденная ошибка, возможно сервис временно недоступен, попробуйте позже.'
+                                    'message.unknown.error.service.not.available::Произошла непредвиденная Error, возможно сервис временно недоступен, попробуйте позже.'
                                 );
                             }
                         }
@@ -180,7 +180,7 @@ class ShareProjectArea extends AbstractFormArea
                 if ($res->isConflict()) {
                     Notifications::error('project.not.uploaded::Проект не загружен', 'message.you.already.have.project.with.name::У вас уже есть проект с таким именем, измените название проекта.');
                 } else {
-                    Notifications::error('project.not.uploaded::Проект не загружен', 'message.unknown.error.service.not.available::Произошла непредвиденная ошибка, возможно сервис временно недоступен, попробуйте позже.');
+                    Notifications::error('project.not.uploaded::Проект не загружен', 'message.unknown.error.service.not.available::Произошла непредвиденная Error, возможно сервис временно недоступен, попробуйте позже.');
                 }
             }
         });
@@ -191,7 +191,7 @@ class ShareProjectArea extends AbstractFormArea
      */
     public function doReUploadButtonAction()
     {
-        if (!MessageBoxForm::confirm('message.confirm.to.upload.project.changes.to.hub::Вы точно хотите загрузить изменения в проекте на develnext.org?', $this)) {
+        if (!MessageBoxForm::confirm('message.confirm.to.upload.project.changes.to.hub::Вы точно хотите загрузить amendedия в проекте на develnext.org?', $this)) {
             return;
         }
 

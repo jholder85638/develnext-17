@@ -190,7 +190,7 @@ class ProjectSystem
         } catch (IOException $e) {
             self::close(false);
             Ide::get()->getMainForm()->hidePreloader();
-            Notifications::error("Ошибка открытия проекта", "Возможно к папке проекта нет доступа или нет места на диске");
+            Notifications::error("Error открытия проекта", "Возможно к папке проекта нет доступа или нет места на диске");
         }
     }
 
@@ -230,7 +230,7 @@ class ProjectSystem
             Logger::exception("Unable to create project", $e);
             ProjectSystem::close(false);
             Ide::get()->getMainForm()->hidePreloader();
-            Notifications::error("Ошибка создания проекта", "Возможно к папке проекта нет доступа или нет места на диске");
+            Notifications::error("Error создания проекта", "Возможно к папке проекта нет доступа или нет места на диске");
         }
     }
 
@@ -256,7 +256,7 @@ class ProjectSystem
 
                 if ($project->isOpenedInOtherIde()) {
                     if ($showDialogAlreadyOpened) {
-                        $msg = new MessageBoxForm('Данный проект уже открыт в другом экземпляре среды!', ['ОК, открыть другой проект']);
+                        $msg = new MessageBoxForm('Данный проект уже открыт в другом экземпляре среды!', ['ОК, открыть other проект']);
                         $msg->showDialog();
                     }
 
@@ -347,7 +347,7 @@ class ProjectSystem
                 Ide::get()->getMainForm()->hidePreloader();
 
                 Logger::exception("Unable to open project", $e);
-                Notifications::error("Ошибка открытия проекта", "Возможно к папке проекта нет доступа или нет места на диске");
+                Notifications::error("Error открытия проекта", "Возможно к папке проекта нет доступа или нет места на диске");
             }
         } catch (InvalidProjectFormatException $e) {
             Ide::get()->getMainForm()->hidePreloader();

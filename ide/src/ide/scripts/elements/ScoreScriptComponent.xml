@@ -10,7 +10,7 @@
     </properties>
 
     <eventTypes>
-        <eventType code="beforeChange" name="До изменения" kind="ObjectEvent" />
-        <eventType code="afterChange" name="После изменения" kind="ObjectEvent" />
+        <eventType code="beforeChange" name="До amendedия" kind="ObjectEvent" />
+        <eventType code="afterChange" name="После amendedия" kind="ObjectEvent" />
     </eventTypes>
 </element>

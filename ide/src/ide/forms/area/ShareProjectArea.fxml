@@ -35,7 +35,7 @@
                   </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="35.0" spacing="10.0">
                             <children>
-                                <Button id="uploadButton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="command.upload.changes::Загрузить изменения">
+                                <Button id="uploadButton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="command.upload.changes::Загрузить amendedия">
                                     <padding>
                                         <Insets left="15.0" right="15.0" />
                                     </padding>

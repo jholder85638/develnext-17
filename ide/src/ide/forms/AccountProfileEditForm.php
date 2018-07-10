@@ -43,7 +43,7 @@ class AccountProfileEditForm extends AbstractForm
 
         $dialog = new UXFileChooser();
         $dialog->extensionFilters = [
-            ['description' => 'Изображения (jpg, png, gif)', 'extensions' => ['*.jpg', '*.jpeg', '*.png', '*.gif']]
+            ['description' => 'Images (jpg, png, gif)', 'extensions' => ['*.jpg', '*.jpeg', '*.png', '*.gif']]
         ];
 
         $this->dialog = $dialog;
@@ -112,26 +112,26 @@ class AccountProfileEditForm extends AbstractForm
 
                             switch ($message) {
                                 case 'LoginNotUnique':
-                                    Notifications::error('Ошибка сохранения', "Данное имя занято другим пользователем.");
+                                    Notifications::error('Error Saving', "That username is already in use.");
                                     break;
                                 case "LoginMinLength":
-                                    Notifications::error('Ошибка сохранения', 'Введенное имя слишком короткое, минимум символов - ' . $param);
+                                    Notifications::error('Error Saving', 'The username you have chosen is too short - ' . $param);
                                     break;
                                 case "LoginMaxLength":
-                                    Notifications::error('Ошибка сохранения', 'Введенное имя слишком длинное, максимум символов - ' . $param);
+                                    Notifications::error('Error Saving', 'The username you have chosen is too long - ' . $param);
                                     break;
                                 default:
-                                    Notifications::error('Ошибка сохранения', $message);
+                                    Notifications::error('Error Saving', $message);
                                     break;
                             }
 
                         } else {
-                            Notifications::show('Ошибка сохранения', 'Невозможно сохранить ваш псевдоним, возможно он введен некорректно!', 'ERROR');
+                            Notifications::show('Error Saving', 'Невозможно сохранить ваш псевдоним, возможно он введен некорректно!', 'ERROR');
                         }
                     }
 
                     if ($response->isSuccess() && $oldName != $this->nameField->text) {
-                        Notifications::show('Псевдоним изменен', 'Поздравляем, ваш псевдоним был успешно изменен на - ' . $this->nameField->text, 'SUCCESS');
+                        Notifications::show('Name changed', 'Your name was successfully changed - ' . $this->nameField->text, 'SUCCESS');
                     }
 
                     $callback();
@@ -145,27 +145,27 @@ class AccountProfileEditForm extends AbstractForm
                                 Ide::service()->account()->changeAvatarAsync($response->result('id'), function (ServiceResponse $response) use ($callback) {
                                     if ($response->isNotSuccess()) {
                                         if ($response->isFail()) {
-                                            Notifications::error('Ошибка сохранения', $response->message());
+                                            Notifications::error('Error сохранения', $response->message());
                                         } else {
-                                            Notifications::show('Ошибка сохранения', 'Невозможно сохранить ваш аватар, попробуйте другой.', 'ERROR');
+                                            Notifications::show('Error сохранения', 'Невозможно сохранить ваш Avatar, попробуйте other.', 'ERROR');
                                         }
                                     }
 
                                     if ($response->isSuccess()) {
                                         $this->avatarChanged = false;
-                                        Notifications::show('Аватар изменен', 'Поздравляем, ваш аватар был успешно изменен на другой', 'SUCCESS');
+                                        Notifications::show('Avatar amended', 'Success!, ваш Avatar был успешно amended на other', 'SUCCESS');
                                     }
 
                                     $callback();
                                 });
                             } else {
                                 if ($response->isNotSuccess()) {
-                                    Notifications::show('Ошибка сохранения', 'Невозможно сохранить ваш аватар, изображение не может быть загружено.', 'ERROR');
+                                    Notifications::show('Error сохранения', 'Невозможно сохранить ваш Avatar, изображение не может быть загружено.', 'ERROR');
                                 }
 
                                 if ($response->isSuccess()) {
                                     $this->avatarChanged = false;
-                                    Notifications::show('Аватар удален', 'Поздравляем, аватар вашего профиля был успешно удален', 'SUCCESS');
+                                    Notifications::show('Avatar удален', 'Success!, Avatar вашего профиля был успешно удален', 'SUCCESS');
                                 }
 
                                 $callback();
@@ -174,7 +174,7 @@ class AccountProfileEditForm extends AbstractForm
                     } else {
                         Ide::service()->account()->deleteAvatarAsync(function (ServiceResponse $response) use ($callback) {
                             if ($response->isNotSuccess()) {
-                                Notifications::show('Ошибка сохранения', 'Невозможно удалить ваш аватар, попробуйте в другой раз.', 'ERROR');
+                                Notifications::show('Error сохранения', 'Невозможно удалить ваш Avatar, попробуйте в other раз.', 'ERROR');
                             }
 
                             $callback();

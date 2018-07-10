@@ -45,6 +45,12 @@ class JPPMAppPluginSupport extends AbstractProjectSupport
         /** @var ProjectFormat $projectFormat */
         if ($projectFormat = $project->getRegisteredFormat(ProjectFormat::class)) {
             $projectFormat->addControlPane(new JPPMControlPane());
+            $projectFormat->addControlPane(new JPPMControlPane());
+
+            // Zimbra Project Plugin tests
+//            $projectFormat->addControlPane(new WatsonControlPane());
+//            $projectFormat->addControlPane(new SystemLogsControlPanel());
+
         }
 
         $prepareFunc = function ($output): Promise {

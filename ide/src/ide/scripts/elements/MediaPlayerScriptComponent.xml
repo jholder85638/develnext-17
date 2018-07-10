@@ -23,6 +23,6 @@
         <eventType code="play" name="Воспроизведение" kind="ObjectEvent" icon="icons/audioPlay16.png" />
         <eventType code="pause" name="Пауза" kind="ObjectEvent" icon="icons/audioPause16.png" />
         <eventType code="stop" name="Стоп" kind="ObjectEvent" icon="icons/audioStop16.png" />
-        <eventType code="error" name="Ошибка чтения" kind="ObjectEvent" icon="icons/no16.png" />
+        <eventType code="error" name="Error чтения" kind="ObjectEvent" icon="icons/no16.png" />
     </eventTypes>
 </element>

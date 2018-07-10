@@ -119,7 +119,7 @@ class RegisterForm extends AbstractOnlineIdeForm
 
                         Notifications::showInvalidValidation();
                     } else {
-                        Notifications::error("Ошибка регистрации", $response->message());
+                        Notifications::error("Error регистрации", $response->message());
                     }
 
                     $this->hidePreloader();

@@ -568,7 +568,7 @@ class FileSystem
         }
 
         if ($editor->isIncorrectFormat()) {
-            Ide::get()->getMainForm()->toast("Ошибка загрузки данных, некорректный или поврежденный файл.\n\n{$path}");
+            Ide::get()->getMainForm()->toast("Error загрузки данных, некорректный или поврежденный файл.\n\n{$path}");
             return null;
         }
 

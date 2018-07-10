@@ -221,7 +221,7 @@ abstract class AbstractEditorsProjectControlPane extends AbstractProjectControlP
                     });
 
                     if (fs::exists($file)) {
-                        UXDialog::show(_('message.error.of.removing::Ошибка удаления, что-то пошло не так'), 'ERROR');
+                        UXDialog::show(_('message.error.of.removing::Error удаления, что-то пошло не так'), 'ERROR');
                         return true;
                     } else {
                         if ($project = Ide::project()) {

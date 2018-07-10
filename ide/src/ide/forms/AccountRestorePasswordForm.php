@@ -48,7 +48,7 @@ class AccountRestorePasswordForm extends AbstractOnlineIdeForm
                     $dialog->showAndWait();
                 });
             } else {
-                Notifications::error('Ошибка восстановления', $response->message());
+                Notifications::error('Error восстановления', $response->message());
 
                 if ($response->data() == "RestorePasswordConfirm") {
                     $this->hide();
